@@ -1,0 +1,818 @@
+.filter-activities {
+  padding: 20px 0;
+}
+
+.filter-activities h2 {
+  margin: 0 0 30px 0;
+  color: #333;
+  font-size: 28px;
+}
+
+.filter-form {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  flex: 1;
+  min-width: 150px;
+}
+
+.filter-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.filter-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.filter-group input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.btn-filter {
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s;
+  height: fit-content;
+}
+
+.btn-filter:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.btn-filter:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.activities-results {
+  margin-top: 20px;
+}
+
+.results-header {
+  margin-bottom: 20px;
+}
+
+.results-header h3 {
+  margin: 0 0 5px 0;
+  color: #333;
+  font-size: 22px;
+}
+
+.results-subtitle {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+/* Month Cards Row */
+.month-cards-row {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 10px 0;
+  margin-bottom: 30px;
+  scrollbar-width: thin;
+  scrollbar-color: #667eea #f0f0f0;
+}
+
+.month-cards-row::-webkit-scrollbar {
+  height: 8px;
+}
+
+.month-cards-row::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 4px;
+}
+
+.month-cards-row::-webkit-scrollbar-thumb {
+  background: #667eea;
+  border-radius: 4px;
+}
+
+.month-card {
+  min-width: 220px;
+  max-width: 220px;
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 2px solid transparent;
+  flex-shrink: 0;
+}
+
+.month-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-color: #667eea;
+}
+
+.month-card-header {
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.month-card-header h3 {
+  margin: 0;
+  color: #333;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.month-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.weeks-count {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.card-expand-indicator {
+  text-align: center;
+  color: #667eea;
+  font-size: 14px;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+/* Week Cards Row */
+.week-cards-row {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding: 10px 0;
+  margin-bottom: 30px;
+  scrollbar-width: thin;
+  scrollbar-color: #667eea #f0f0f0;
+}
+
+.week-cards-row::-webkit-scrollbar {
+  height: 8px;
+}
+
+.week-cards-row::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 4px;
+}
+
+.week-cards-row::-webkit-scrollbar-thumb {
+  background: #667eea;
+  border-radius: 4px;
+}
+
+.week-card {
+  min-width: 200px;
+  max-width: 200px;
+  background: white;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 2px solid transparent;
+  flex-shrink: 0;
+}
+
+.week-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-color: #667eea;
+}
+
+.week-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.week-card-header h4 {
+  margin: 0;
+  color: #333;
+  font-size: 16px;
+  font-weight: 600;
+  flex: 1;
+}
+
+.current-week-badge {
+  background: #667eea;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.week-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.week-dates {
+  margin: 0;
+  color: #666;
+  font-size: 13px;
+}
+
+.activities-count {
+  margin: 0;
+  color: #999;
+  font-size: 12px;
+}
+
+/* Week Cards Container */
+.week-cards-container {
+  margin-top: 20px;
+}
+
+.week-cards-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.week-cards-header h4 {
+  margin: 0;
+  color: #333;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.back-to-month-btn {
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.back-to-month-btn:hover {
+  background: #e8e8e8;
+  border-color: #667eea;
+  color: #667eea;
+  transform: translateX(-2px);
+}
+
+/* Week Activities Container */
+.week-activities-container {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.week-activities-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.week-activities-header h3 {
+  margin: 0 0 8px 0;
+  color: #333;
+  font-size: 24px;
+}
+
+.week-dates-header {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.close-week-btn {
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.close-week-btn:hover {
+  background: #e0e0e0;
+  border-color: #667eea;
+  color: #667eea;
+}
+
+/* Activities Table */
+.activities-table-container {
+  overflow-x: auto;
+}
+
+.activities-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.activities-table thead {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.activities-table th {
+  padding: 15px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.activities-table th:last-child {
+  min-width: 300px;
+}
+
+.activities-table tbody tr {
+  border-bottom: 1px solid #e0e0e0;
+  transition: all 0.2s;
+}
+
+.activities-table tbody tr:hover {
+  background: #f8f9ff;
+  transform: scale(1.01);
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.1);
+}
+
+.activities-table td {
+  padding: 15px;
+  font-size: 14px;
+  color: #333;
+}
+
+.activities-table td:first-child {
+  font-weight: 600;
+}
+
+.activities-table td:nth-child(2) {
+  font-weight: 700;
+  color: #667eea;
+  font-size: 15px;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.activities-table td:nth-child(2)::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 70%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+}
+
+.chanting-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 3px 8px rgba(102, 126, 234, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-transform: capitalize;
+}
+
+.chanting-badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.chanting-badge:hover::before {
+  left: 100%;
+}
+
+.chanting-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.status-badge.completed {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status-badge.not-completed {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.day-specific-activities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.activity-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: 0 3px 8px rgba(102, 126, 234, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+  text-transform: capitalize;
+  letter-spacing: 0.3px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.activity-tag::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.activity-tag:hover::before {
+  left: 100%;
+}
+
+.activity-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+/* All activity tags use the same blue color */
+.activity-tag-blue {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  box-shadow: 0 3px 8px rgba(102, 126, 234, 0.3) !important;
+}
+
+.activity-tag-blue:hover {
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4) !important;
+}
+
+/* Status-based styling */
+.activity-tag[data-status="Attended"] {
+  border-left: 3px solid #28a745;
+}
+
+.activity-tag[data-status="Not Attended"] {
+  border-left: 3px solid #dc3545;
+  opacity: 0.85;
+}
+
+.activity-tag[data-status="No Session Today"] {
+  border-left: 3px solid #ffc107;
+}
+
+.activity-tag-blue[data-status="No Session Today"] {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  border-left: 3px solid #ffc107;
+}
+
+/* Ensure all status-based styling works with blue background */
+.activity-tag-blue[data-status="Attended"] {
+  border-left: 3px solid #28a745;
+}
+
+.activity-tag-blue[data-status="Not Attended"] {
+  border-left: 3px solid #dc3545;
+  opacity: 0.9;
+}
+
+.activity-tag-blue[data-status="Online"],
+.activity-tag-blue[data-status="Offline"] {
+  border-left: 3px solid #17a2b8;
+}
+
+.activity-tag-blue[data-status="Yes"] {
+  border-left: 3px solid #28a745;
+}
+
+.activity-tag-blue[data-status="No"] {
+  border-left: 3px solid #6c757d;
+  opacity: 0.9;
+}
+
+.activity-tag[data-status="Online"],
+.activity-tag[data-status="Offline"] {
+  border-left: 3px solid #17a2b8;
+}
+
+.activity-tag[data-status="Yes"] {
+  border-left: 3px solid #28a745;
+}
+
+.activity-tag[data-status="No"] {
+  border-left: 3px solid #6c757d;
+  opacity: 0.85;
+}
+
+.activity-tag.no-activity {
+  background: #f5f5f5;
+  color: #999;
+  box-shadow: none;
+  border-left: 3px solid #ddd;
+}
+
+.activity-tag.no-activity:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.activity-tag strong,
+.activity-tag-blue strong {
+  margin-right: 6px;
+  font-weight: 700;
+  opacity: 0.95;
+}
+
+.no-results {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  font-size: 16px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.error-message {
+  background: #fee;
+  color: #c33;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border-left: 4px solid #c33;
+  font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .filter-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-group {
+    width: 100%;
+  }
+
+  .activities-table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .week-cards-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .back-to-month-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .filter-activities {
+    padding: 15px 0;
+  }
+
+  .filter-activities h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .filter-form {
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .filter-group {
+    min-width: 100%;
+  }
+
+  .btn-filter {
+    width: 100%;
+  }
+
+  .month-cards-row,
+  .week-cards-row {
+    gap: 10px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 10px;
+    scrollbar-width: thin;
+  }
+
+  .month-card {
+    min-width: 180px;
+    max-width: 180px;
+  }
+
+  .week-cards-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .back-to-month-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .week-card {
+    min-width: 160px;
+    max-width: 160px;
+  }
+
+  .week-activities-header {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .week-activities-header h3 {
+    font-size: 20px;
+  }
+
+  .week-dates-header {
+    font-size: 13px;
+  }
+
+  .activities-table {
+    font-size: 12px;
+    min-width: 600px;
+  }
+
+  .activities-table th,
+  .activities-table td {
+    padding: 10px 8px;
+  }
+
+  .activities-table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -10px;
+    padding: 0 10px;
+  }
+
+  .day-column {
+    font-size: 12px;
+  }
+
+  .chanting-badge {
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+
+  .activity-tag {
+    font-size: 11px;
+    padding: 6px 10px;
+    margin: 3px;
+  }
+}
+
+@media (max-width: 480px) {
+  .filter-activities h2 {
+    font-size: 20px;
+  }
+
+  .filter-form {
+    padding: 12px;
+  }
+
+  .week-cards-header h4 {
+    font-size: 18px;
+  }
+
+  .back-to-month-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
+  .month-card,
+  .week-card {
+    min-width: 150px;
+    max-width: 150px;
+    padding: 12px;
+  }
+
+  .week-activities-header {
+    padding: 12px;
+  }
+
+  .week-activities-header h3 {
+    font-size: 18px;
+  }
+
+  .activities-table {
+    font-size: 11px;
+    min-width: 500px;
+  }
+
+  .activities-table th,
+  .activities-table td {
+    padding: 8px 6px;
+  }
+
+  .day-column {
+    font-size: 11px;
+  }
+
+  .chanting-badge {
+    font-size: 10px;
+    padding: 5px 8px;
+  }
+
+  .activity-tag {
+    font-size: 10px;
+    padding: 5px 8px;
+    margin: 2px;
+  }
+}

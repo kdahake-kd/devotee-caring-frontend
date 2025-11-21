@@ -1,0 +1,295 @@
+/* Flying Boxes Animation */
+.flying-boxes-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.flying-box {
+  position: absolute;
+  bottom: -50px;
+  width: 40px;
+  height: 40px;
+  pointer-events: none;
+  animation: flyUpAndFade var(--duration, 2s) ease-out forwards;
+}
+
+@keyframes flyUpAndFade {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(0.5);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-50vh) rotate(var(--rotation, 180deg)) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(var(--rotation, 360deg)) scale(0.3);
+    opacity: 0;
+  }
+}
+
+.box-content {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ffd700 100%);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  animation: pulse 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+  }
+  100% {
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.6);
+  }
+}
+
+.krishna-symbol {
+  animation: rotate 1s linear infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.floating-message-logo {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  display: block;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Floating Messages Animation - Peacock-like Structure */
+.floating-messages-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9998;
+  overflow: hidden;
+}
+
+.floating-message {
+  position: absolute;
+  font-size: 11px;
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: 700;
+  white-space: nowrap;
+  pointer-events: none;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.1);
+  font-family: 'Arial', sans-serif;
+  letter-spacing: 1.5px;
+}
+
+/* Peacock-like curved path from left */
+.floating-message.peacock-left {
+  animation: peacockFlowLeft var(--duration, 25s) ease-in-out infinite;
+}
+
+/* Peacock-like curved path from right */
+.floating-message.peacock-right {
+  animation: peacockFlowRight var(--duration, 25s) ease-in-out infinite;
+}
+
+/* Left to right with peacock tail curve */
+@keyframes peacockFlowLeft {
+  0% {
+    transform: translateX(-150px) translateY(0) rotate(-10deg);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.6;
+  }
+  25% {
+    transform: translateX(25vw) translateY(calc(var(--curve-intensity, 50px) * -1)) rotate(5deg);
+  }
+  50% {
+    transform: translateX(50vw) translateY(calc(var(--curve-intensity, 50px) * 0.5)) rotate(0deg);
+  }
+  75% {
+    transform: translateX(75vw) translateY(calc(var(--curve-intensity, 50px) * -0.3)) rotate(-5deg);
+  }
+  95% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(calc(100vw + 150px)) translateY(calc(var(--curve-intensity, 50px) * 0.8)) rotate(-10deg);
+    opacity: 0;
+  }
+}
+
+/* Right to left with peacock tail curve */
+@keyframes peacockFlowRight {
+  0% {
+    transform: translateX(calc(100vw + 150px)) translateY(0) rotate(10deg);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.6;
+  }
+  25% {
+    transform: translateX(75vw) translateY(calc(var(--curve-intensity, 50px) * 1)) rotate(-5deg);
+  }
+  50% {
+    transform: translateX(50vw) translateY(calc(var(--curve-intensity, 50px) * -0.5)) rotate(0deg);
+  }
+  75% {
+    transform: translateX(25vw) translateY(calc(var(--curve-intensity, 50px) * 0.3)) rotate(5deg);
+  }
+  95% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(-150px) translateY(calc(var(--curve-intensity, 50px) * -0.8)) rotate(10deg);
+    opacity: 0;
+  }
+}
+
+/* Success Celebration */
+.success-celebration {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  pointer-events: none;
+}
+
+.celebration-content {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.95) 0%, rgba(247, 147, 30, 0.95) 100%);
+  padding: 30px 50px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(255, 107, 53, 0.5);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  animation: celebrationPop 0.5s ease-out;
+  text-align: center;
+}
+
+@keyframes celebrationPop {
+  0% {
+    transform: scale(0) rotate(-180deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1) rotate(10deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.celebration-icon {
+  margin-bottom: 10px;
+  animation: bounce 1s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.celebration-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  display: block;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.celebration-message {
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  letter-spacing: 1px;
+}
+
+.celebration-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, #ffd700, #ff6b35);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  animation: particleExplode 1.5s ease-out forwards;
+  animation-delay: var(--delay);
+}
+
+@keyframes particleExplode {
+  0% {
+    transform: translate(-50%, -50%) scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(calc(-50% + var(--x, 0px)), calc(-50% + var(--y, 0px))) scale(1) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Additional spiritual theme enhancements */
+.spiritual-glow {
+  box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+.spiritual-glow:hover {
+  box-shadow: 0 0 30px rgba(255, 107, 53, 0.5);
+}
+
+/* Subtle background pattern */
+.spiritual-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.03;
+  background-image: 
+    repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 107, 53, 0.1) 10px, rgba(255, 107, 53, 0.1) 20px),
+    repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(247, 147, 30, 0.1) 10px, rgba(247, 147, 30, 0.1) 20px);
+}
+
