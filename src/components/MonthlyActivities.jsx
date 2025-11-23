@@ -87,6 +87,25 @@ const MonthlyActivities = () => {
     return value;
   };
 
+  const getStatusClass = (fieldName, value) => {
+    if (!value || value === 'N/A') return 'status-na';
+    
+    switch (fieldName) {
+      case 'one_to_one_meeting_conducted_with_counselor':
+        return value === 'Yes' ? 'status-success' : 'status-error';
+      case 'monthly_morning_program':
+        return value === 'Attended' ? 'status-success' : 'status-error';
+      case 'monthly_book_completed':
+        if (value === 'Completed') return 'status-success';
+        if (value === 'Partially Completed') return 'status-warning';
+        return 'status-error';
+      case 'book_discussion_attended':
+        return value === 'Attended' ? 'status-success' : 'status-error';
+      default:
+        return '';
+    }
+  };
+
   const monthNames = [
     'January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December'
@@ -163,25 +182,33 @@ const MonthlyActivities = () => {
             <div className="month-details">
               <div className="detail-item">
                 <span className="label">Counselor Meeting:</span>
-                <span className="value">{getFieldValue(currentMonthData, 'one_to_one_meeting_conducted_with_counselor')}</span>
+                <span className={`value status-badge ${getStatusClass('one_to_one_meeting_conducted_with_counselor', currentMonthData.one_to_one_meeting_conducted_with_counselor)}`}>
+                  {getFieldValue(currentMonthData, 'one_to_one_meeting_conducted_with_counselor')}
+                </span>
               </div>
               <div className="detail-item">
                 <span className="label">Morning Program:</span>
-                <span className="value">{getFieldValue(currentMonthData, 'monthly_morning_program')}</span>
+                <span className={`value status-badge ${getStatusClass('monthly_morning_program', currentMonthData.monthly_morning_program)}`}>
+                  {getFieldValue(currentMonthData, 'monthly_morning_program')}
+                </span>
               </div>
               <div className="detail-item">
                 <span className="label">Book Completed:</span>
-                <span className="value">{getFieldValue(currentMonthData, 'monthly_book_completed')}</span>
+                <span className={`value status-badge ${getStatusClass('monthly_book_completed', currentMonthData.monthly_book_completed)}`}>
+                  {getFieldValue(currentMonthData, 'monthly_book_completed')}
+                </span>
               </div>
               {currentMonthData.monthly_book_completed !== 'Not Completed' && (
                 <>
                   <div className="detail-item">
                     <span className="label">Book Name:</span>
-                    <span className="value">{getFieldValue(currentMonthData, 'book_name')}</span>
+                    <span className="value book-name-value">{getFieldValue(currentMonthData, 'book_name')}</span>
                   </div>
                   <div className="detail-item">
                     <span className="label">Book Discussion:</span>
-                    <span className="value">{getFieldValue(currentMonthData, 'book_discussion_attended')}</span>
+                    <span className={`value status-badge ${getStatusClass('book_discussion_attended', currentMonthData.book_discussion_attended)}`}>
+                      {getFieldValue(currentMonthData, 'book_discussion_attended')}
+                    </span>
                   </div>
                 </>
               )}
@@ -247,7 +274,11 @@ const MonthlyActivities = () => {
                           {getFieldValue(activity, 'monthly_book_completed')}
                         </span>
                       </td>
-                      <td>{getFieldValue(activity, 'book_name')}</td>
+                      <td>
+                        <span className="book-name-cell">
+                          {getFieldValue(activity, 'book_name')}
+                        </span>
+                      </td>
                       <td>
                         {activity.monthly_book_completed !== 'Not Completed' ? (
                           <span className={`status-badge ${activity.book_discussion_attended === 'Attended' ? 'completed' : 'not-completed'}`}>

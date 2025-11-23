@@ -350,6 +350,16 @@
   box-shadow: 0 20px 40px rgba(157, 78, 221, 0.4);
 }
 
+.card-5 {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 140, 0, 0.2));
+  border-color: rgba(255, 215, 0, 0.4);
+}
+
+.card-5:hover {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.3), rgba(255, 140, 0, 0.3));
+  box-shadow: 0 20px 40px rgba(255, 215, 0, 0.4);
+}
+
 .card-icon {
   font-size: 60px;
   margin-bottom: 20px;

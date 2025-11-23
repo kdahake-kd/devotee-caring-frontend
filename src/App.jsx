@@ -7,6 +7,9 @@ import Register from './components/Register';
 import Dashboard from './components/Dashboard';
 import AdminLogin from './components/AdminLogin';
 import AdminDashboard from './components/AdminDashboard';
+import ShlokaSearch from './components/ShlokaSearch';
+import Profile from './components/Profile';
+import QuickEntry from './components/QuickEntry';
 import './App.css';
 
 function App() {
@@ -17,11 +20,21 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/shloka-search" element={<ShlokaSearch />} />
+          <Route path="/quick-entry/:token" element={<QuickEntry />} />
           <Route
             path="/dashboard"
             element={
               <ProtectedRoute>
                 <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <Profile />
               </ProtectedRoute>
             }
           />

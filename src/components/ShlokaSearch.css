@@ -1,0 +1,399 @@
+.shloka-search-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #fff8f0 100%);
+  padding: 40px 20px;
+}
+
+.shloka-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.shloka-header h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.shloka-header p {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+/* Search Form */
+.shloka-search-form {
+  max-width: 800px;
+  margin: 0 auto 40px;
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.search-inputs {
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.input-group {
+  flex: 1;
+  min-width: 150px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s;
+  box-sizing: border-box;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.search-btn {
+  padding: 12px 30px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  white-space: nowrap;
+  min-height: 44px;
+}
+
+.search-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+}
+
+.search-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Error Message */
+.shloka-error {
+  max-width: 800px;
+  margin: 0 auto 40px;
+  background: linear-gradient(135deg, #fee 0%, #fdd 100%);
+  border: 2px solid #f88;
+  border-radius: 16px;
+  padding: 30px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.error-icon {
+  font-size: 48px;
+  flex-shrink: 0;
+}
+
+.error-content h3 {
+  color: #c33;
+  margin: 0 0 10px 0;
+  font-size: 1.5rem;
+}
+
+.error-content p {
+  color: #666;
+  margin: 8px 0;
+  line-height: 1.6;
+}
+
+.error-hint {
+  color: #999;
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-top: 10px;
+}
+
+/* Shloka Display */
+.shloka-display {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.shloka-header-info {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 3px solid #667eea;
+}
+
+.shloka-header-info h2 {
+  font-size: 2rem;
+  color: #333;
+  margin: 0 0 8px 0;
+}
+
+.verse-reference {
+  color: #666;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.shloka-section {
+  margin-bottom: 35px;
+  padding: 25px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border-radius: 12px;
+  border-left: 4px solid #667eea;
+}
+
+.shloka-section h3 {
+  color: #667eea;
+  margin: 0 0 15px 0;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sanskrit-text {
+  font-size: 1.4rem;
+  line-height: 2;
+  color: #333;
+  font-family: 'Noto Sans Devanagari', 'Arial Unicode MS', sans-serif;
+  text-align: center;
+  padding: 20px;
+  background: rgba(102, 126, 234, 0.05);
+  border-radius: 8px;
+}
+
+.transliteration-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+  font-style: italic;
+  padding: 15px;
+  background: rgba(102, 126, 234, 0.03);
+  border-radius: 8px;
+  white-space: pre-line;
+}
+
+.synonyms-text {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #555;
+  padding: 15px;
+  background: rgba(102, 126, 234, 0.03);
+  border-radius: 8px;
+}
+
+.translation-text {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #333;
+  font-weight: 500;
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  border-radius: 8px;
+  border-left: 4px solid #764ba2;
+}
+
+.purport-text {
+  font-size: 1rem;
+  line-height: 1.9;
+  color: #444;
+  padding: 20px;
+  background: rgba(102, 126, 234, 0.02);
+  border-radius: 8px;
+}
+
+.purport-text p {
+  margin: 0 0 15px 0;
+}
+
+.purport-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* Navigation Buttons */
+.shloka-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 3px solid #e0e0e0;
+  gap: 20px;
+}
+
+.nav-btn {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  min-width: 150px;
+  min-height: 44px;
+}
+
+.prev-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.prev-btn:hover:not(:disabled) {
+  transform: translateX(-3px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+}
+
+.next-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.next-btn:hover:not(:disabled) {
+  transform: translateX(3px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+}
+
+.nav-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #ccc;
+}
+
+.verse-info {
+  flex: 1;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #667eea;
+  padding: 0 20px;
+}
+
+.shloka-source {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 2px solid #e0e0e0;
+  text-align: center;
+}
+
+.source-link {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s;
+  display: inline-block;
+}
+
+.source-link:hover {
+  color: #764ba2;
+  transform: translateX(5px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .shloka-search-container {
+    padding: 20px 15px;
+  }
+
+  .shloka-header h1 {
+    font-size: 2rem;
+  }
+
+  .shloka-search-form {
+    padding: 20px;
+  }
+
+  .search-inputs {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .input-group {
+    width: 100%;
+  }
+
+  .search-btn {
+    width: 100%;
+  }
+
+  .shloka-display {
+    padding: 25px 20px;
+  }
+
+  .sanskrit-text {
+    font-size: 1.2rem;
+  }
+
+  .transliteration-text,
+  .translation-text,
+  .purport-text {
+    font-size: 0.95rem;
+  }
+
+  .shloka-error {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .error-icon {
+    font-size: 36px;
+    align-self: center;
+  }
+
+  .shloka-navigation {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .nav-btn {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .verse-info {
+    order: -1;
+    padding: 10px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .shloka-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .shloka-section {
+    padding: 15px;
+  }
+
+  .sanskrit-text {
+    font-size: 1rem;
+    padding: 15px;
+  }
+}
+

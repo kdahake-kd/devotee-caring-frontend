@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { authService } from '../services/authService';
 import { activityService } from '../services/activityService';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import DailyActivityForm from './DailyActivityForm';
 import WeekView from './WeekView';
 import FilterActivities from './FilterActivities';
@@ -13,6 +13,7 @@ import './Dashboard.css';
 const Dashboard = () => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [weekData, setWeekData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -20,9 +21,14 @@ const Dashboard = () => {
   const [totalChantingRounds, setTotalChantingRounds] = useState(0);
 
   useEffect(() => {
+    // Check if tab parameter is in URL
+    const tabParam = searchParams.get('tab');
+    if (tabParam === 'monthly') {
+      setActiveTab('monthly');
+    }
     fetchWeekData();
     fetchChantingRoundCount();
-  }, []);
+  }, [searchParams]);
 
   useEffect(() => {
     // Refresh chanting count when activities are updated
@@ -86,9 +92,30 @@ const Dashboard = () => {
               </div>
             </div>
             <div className="user-info">
-              <span>Welcome, {user?.first_name} {user?.last_name}</span>
+              <span className="welcome-text">Welcome, {user?.first_name} {user?.last_name}</span>
               <button onClick={handleLogout} className="btn-logout">
                 Logout
+              </button>
+              <button 
+                onClick={() => navigate('/profile')} 
+                className="btn-profile"
+                title="Profile Settings"
+              >
+                {user?.profile_image ? (
+                  <img 
+                    src={user.profile_image} 
+                    alt="Profile" 
+                    className="profile-image-icon"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      const emoji = e.target.nextElementSibling;
+                      if (emoji) emoji.style.display = 'block';
+                    }}
+                  />
+                ) : null}
+                {!user?.profile_image && (
+                  <span className="profile-icon-emoji">👤</span>
+                )}
               </button>
             </div>
           </div>

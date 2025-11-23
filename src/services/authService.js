@@ -43,5 +43,47 @@ export const authService = {
     });
     return response.data;
   },
+
+  getProfile: async () => {
+    const response = await api.get('/auth/profile/');
+    return response.data;
+  },
+
+  updateProfile: async (profileData) => {
+    const formData = new FormData();
+    if (profileData.first_name) formData.append('first_name', profileData.first_name);
+    if (profileData.last_name) formData.append('last_name', profileData.last_name);
+    if (profileData.email) formData.append('email', profileData.email);
+    if (profileData.profile_image) formData.append('profile_image', profileData.profile_image);
+    if (profileData.date_of_birth) formData.append('date_of_birth', profileData.date_of_birth);
+    if (profileData.initiation_date) formData.append('initiation_date', profileData.initiation_date);
+
+    const response = await api.put('/auth/update-profile/', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+    return response.data;
+  },
+
+  deleteProfile: async () => {
+    const response = await api.delete('/auth/delete-profile/');
+    return response.data;
+  },
+
+  deleteSadanaData: async () => {
+    const response = await api.delete('/auth/delete-sadana-data/');
+    return response.data;
+  },
+
+  getSpiritualGrowth: async () => {
+    const response = await api.get('/auth/spiritual-growth/');
+    return response.data;
+  },
+
+  generateQrToken: async () => {
+    const response = await api.post('/auth/generate-qr-token/');
+    return response.data;
+  },
 };
 

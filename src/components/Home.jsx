@@ -85,6 +85,16 @@ const Home = () => {
           </div>
 
           <div 
+            className="feature-card card-5" 
+            onClick={() => navigate('/shloka-search')}
+          >
+            <div className="card-icon">📜</div>
+            <h3>Search Gita Shloka</h3>
+            <p>Explore the wisdom of Bhagavad-gītā</p>
+            <div className="card-glow"></div>
+          </div>
+
+          <div 
             className="feature-card card-2" 
             onClick={() => {
               if (user) {
@@ -104,7 +114,8 @@ const Home = () => {
             className="feature-card card-3" 
             onClick={() => {
               if (user) {
-                navigate(user.is_staff || user.is_superuser ? '/admin/dashboard' : '/dashboard');
+                // Redirect to dashboard with monthly activities tab
+                navigate('/dashboard?tab=monthly');
               } else {
                 navigate('/login');
               }
