@@ -92,6 +92,13 @@ const Dashboard = () => {
               </div>
             </div>
             <div className="user-info">
+              <button 
+                onClick={() => navigate('/')} 
+                className="btn-home"
+                title="Home Page"
+              >
+                Home
+              </button>
               <span className="welcome-text">Welcome, {user?.first_name} {user?.last_name}</span>
               <button onClick={handleLogout} className="btn-logout">
                 Logout

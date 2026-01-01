@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { adminService } from '../services/adminService';
 import { useAuth } from '../context/AuthContext';
@@ -12,7 +12,29 @@ const AdminLogin = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { login, user, loading: authLoading } = useAuth();
+
+  // Redirect if already logged in
+  useEffect(() => {
+    if (!authLoading && user) {
+      // If user is admin, redirect to admin dashboard, otherwise regular dashboard
+      if (user.is_staff || user.is_superuser) {
+        navigate('/admin/dashboard', { replace: true });
+      } else {
+        navigate('/dashboard', { replace: true });
+      }
+    }
+  }, [user, authLoading, navigate]);
+
+  // Show loading while checking auth
+  if (authLoading) {
+    return <div className="loading">Loading...</div>;
+  }
+
+  // Don't render login form if user is already logged in (will redirect)
+  if (user) {
+    return null;
+  }
 
   const handleChange = (e) => {
     setFormData({
@@ -51,7 +73,7 @@ const AdminLogin = () => {
 
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="username">Username / Mobile Number</label>
+            <label htmlFor="username">Mobile Number</label>
             <input
               type="text"
               id="username"
